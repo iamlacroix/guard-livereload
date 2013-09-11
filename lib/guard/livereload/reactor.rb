@@ -18,6 +18,7 @@ module Guard
       def reload_browser(paths = [])
         UI.info "Reloading browser: #{paths.join(' ')}"
         paths.each do |path|
+          path = path.gsub(/\.s[ac]ss$/, '.css')
           data = {
             :command  => 'reload',
             :path     => "#{Dir.pwd}/#{path}",
